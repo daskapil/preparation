@@ -1,5 +1,6 @@
 package com.kapil.preparation.java8.streamapi;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ReduceDemo {
@@ -8,7 +9,8 @@ public class ReduceDemo {
 
         //R reduce(T identity, BinaryOperator<T> accumulator)
         int sum = numbers.stream().reduce(0, (a, b) -> a + b);
-        System.out.println("Sum using reduce(identity, BinaryOperator<T> accumulator): " + sum);
+        int sum2 = numbers.stream().reduce(0, Integer::sum);
+        System.out.println("Sum using reduce(identity, BinaryOperator<T> accumulator): " + sum2);
 
         int sumUsingStreamSumMethod = numbers.stream().mapToInt(i-> i).sum();
         System.out.println("Sum using Stream sum(): " + sumUsingStreamSumMethod);
@@ -22,6 +24,7 @@ public class ReduceDemo {
 
         List<String> words = List.of("Raj", "Anita", " Sumana", "Kohi", "Jordona");
         getLongestWord(words);
+        getLongestWord();
     }
 
     private static void getLongestWord(List<String> words) {
@@ -30,6 +33,15 @@ public class ReduceDemo {
 //                .get();
                 .orElse("no word found!");
         System.out.println("Longest word: " + longestWord);
+    }
+
+    private static void getLongestWord() {
+        String sentence = "I love you India";
+        String longestWord = Arrays.stream(sentence.trim().split(" "))
+                .reduce((w1, w2) -> w1.length() > w2.length() ? w1: w2)
+                .orElse("No such word found");
+
+        System.out.println(longestWord);
     }
 
 }

@@ -14,19 +14,19 @@ public class CharacterCount {
      * */
     public static void main(String[] args) {
         String text = "bookkeeper";
+        System.out.println(countCharacters(text));
+    }
 
-//        Map<Character, Integer> output = new HashMap<>(); --> Use HashMap for unsorted output
-        Map<Character, Integer> output = new TreeMap<>(); // --> Use TreeMap for sorted output
-
-        for (char c : text.toCharArray()) {
-            if (output.containsKey(c)) {
-                output.put(c, output.get(c) + 1);
+    private static Map<Character, Integer> countCharacters(String text) {
+        Map<Character, Integer> outputs =  new TreeMap<>();
+        for (char c: text.toCharArray()) {
+            if (outputs.containsKey(c)){
+                outputs.put(c, outputs.get(c) + 1);
             } else {
-                output.put(c, 1);
+                outputs.put(c, 1);
             }
         }
-
-        System.out.println(output);
+        return outputs;
     }
 
     public static class LC46_Permutations {
@@ -40,17 +40,17 @@ public class CharacterCount {
             return permute(in, new ArrayList<>());
         }
 
-        private static List<List<Integer>> permute(List<Integer>in, List<Integer> out) {
+        private static List<List<Integer>> permute(List<Integer> in, List<Integer> out) {
             List<List<Integer>> list = new ArrayList<>();
 
-            if(in.isEmpty()){
+            if (in.isEmpty()) {
                 list.add(out);
                 return list;
             }
 
             int n = in.get(0);
             List<Integer> inner = new ArrayList<>();
-            for (int i = 0; i <=out.size(); i++){
+            for (int i = 0; i <= out.size(); i++) {
 
             }
 

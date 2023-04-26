@@ -16,7 +16,7 @@ public class Permutations {
     }
 
     private static List<String> permutations(String in) {
-        return permutations(in, "");
+        return permutations2(in, "");
     }
 
     private static List<String> permutations(String in, String out) {
@@ -37,6 +37,24 @@ public class Permutations {
         return list;
     }
 
+
+    private static List<String> permutations2(String in, String out) {
+        List<String> list = new ArrayList<>();
+
+        if (in.isEmpty()) {
+            list.add(out);
+            return list;
+        }
+
+        char ch = in.charAt(0);
+        for (int i = 0; i <= out.length(); i++) {
+            String f = out.substring(0, i);
+            String s = out.substring(i);
+            list.addAll(permutations2(in.substring(1),f + ch + s));
+
+        }
+        return list;
+    }
 
     // Count Permutations
     private static int permutationsCount(String in) {

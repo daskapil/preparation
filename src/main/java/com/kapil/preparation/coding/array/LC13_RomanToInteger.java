@@ -24,11 +24,11 @@ Roman numerals are usually written largest to smallest from left to right. Howev
 Given a roman numeral, convert it to an integer.
 */
 /*
-* Time Complexity: O(n)
-* Space Complexity: O(1)
-*
-* https://leetcode.com/problems/roman-to-integer/
-* */
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ *
+ * https://leetcode.com/problems/roman-to-integer/
+ * */
 public class LC13_RomanToInteger {
     public static void main(String[] args) {
         System.out.println("romanToInteger: " + romanToInteger2("MCMXCIV"));
@@ -46,16 +46,15 @@ public class LC13_RomanToInteger {
      * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
      * */
     private static int romanToInteger(String roman) {
-        Map<Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-        System.out.println(map);
-
+        Map<Character, Integer> map = Map.of(
+                'I', 1,
+                'V', 5,
+                'X', 10,
+                'L', 50,
+                'C', 100,
+                'D', 500,
+                'M', 1000
+        );
         int result = 0;
 
         for (int i = 0; i < roman.length(); i++) {

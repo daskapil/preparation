@@ -26,18 +26,14 @@ public class LinearSearch {
         return findAllIndex(arr, target, 0);
     }
 
-    static List<Integer> findAllIndex(int[] arr, int target, int index) {
+    private static List<Integer> findAllIndex(int[] arr, int target, int i) {
         List<Integer> list = new ArrayList<>();
 
-        if (index == arr.length) {
-            return list;
-        }
+        if (i == arr.length) return list;
 
-        if (target == arr[index]) {
-            list.add(index);
-        }
-        list.addAll(findAllIndex(arr, target, index + 1));
-
+        if (target == arr[i]) list.add(i);
+        list.addAll(findAllIndex(arr, target, i + 1));
         return list;
     }
+
 }

@@ -17,7 +17,7 @@ public class LC125_Palindrome {
     }
 
     private static boolean isPalindromeStreamAPI(String str) {
-        String temp = str.replaceAll("\\s+", "")    ;
+        String temp = str.replaceAll("\\s+", "");
         int length = temp.length();
         return IntStream.range(0, length / 2)
                 .noneMatch(i -> temp.charAt(i) != temp.charAt(length - i - 1));
@@ -36,28 +36,27 @@ public class LC125_Palindrome {
         }
 
         return IntStream.range(0, n / 2).noneMatch(i -> tmp.charAt(i) != tmp.charAt(n - i - 1));
+
 //        for (int i = 0; i < len / 2; i++) {
 //            if (tmp.charAt(i) != tmp.charAt(len - i - 1)) {
 //                return false;
 //            }
 //        }
 //        return true;
-    }
 
+    }
 
 
     // Recursion
-    private static boolean isPalindromeRecur(String s){
+    private static boolean isPalindromeRecur(String s) {
         s = s.toLowerCase().replaceAll("[^a-b0-9]+", "");
-        if(s.isBlank()) return true;
+        if (s.isBlank()) return true;
         return isPalindromeRecur(s, 0, s.length());
     }
 
-    private static boolean isPalindromeRecur(String s, int l, int r){
-        if(l >= r) return true;
-
-        if (s.charAt(l) != s.charAt( r - 1)) return false;
-
-        return isPalindromeRecur(s, l + 1,  r -1);
+    private static boolean isPalindromeRecur(String s, int l, int r) {
+        if (l >= r) return true;
+        if (s.charAt(l) != s.charAt(r - 1)) return false;
+        return isPalindromeRecur(s, l + 1, r - 1);
     }
 }

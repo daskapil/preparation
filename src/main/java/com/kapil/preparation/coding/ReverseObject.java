@@ -30,6 +30,15 @@ public class ReverseObject {
         return output.toString();
     }
 
+    private static String reverseStringLoop2(String s) {
+        if (s.isBlank()) return s;
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = s.length() - 1; i >= 0; i--){
+            sb.append(s.charAt(i));
+        }
+        return sb.toString();
+    }
     private static String reverseStringStringBuilder(String input) {
         if (input == null) return input;
 
@@ -48,6 +57,7 @@ public class ReverseObject {
 
     private static void reverseArrayStreamAPI(Object[] array) {
         Object[] reversedArray = IntStream.range(0, array.length).mapToObj(i -> array[array.length - i - 1]).toArray();
+        IntStream.range(0, array.length).mapToObj(i -> array[array.length - 1 - i]).toArray();
         System.out.println(Arrays.toString(reversedArray));
     }
 
@@ -60,5 +70,6 @@ public class ReverseObject {
         List<Object> list = Arrays.asList(array);
         Collections.reverse(list);
         System.out.println(list);
+
     }
 }
