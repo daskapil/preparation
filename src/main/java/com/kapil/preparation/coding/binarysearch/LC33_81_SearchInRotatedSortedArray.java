@@ -1,38 +1,39 @@
 package com.kapil.preparation.coding.binarysearch;
 
 /*
+ * 33. Search in Rotated Sorted Array
  * https://leetcode.com/problems/search-in-rotated-sorted-array/
+ *
+ * 81. Search in Rotated Sorted Array II
+ * https://leetcode.com/problems/search-in-rotated-sorted-array-ii
+ *
+ * findPivot(nums) method is the only difference between the above two problem
  * */
-public class LC33_SearchInRotatedSortedArray {
+public class LC33_81_SearchInRotatedSortedArray {
     public static void main(String[] args) {
-        int[] nums = {4, 5, 6, 7, 0, 1, 2};
-//        int[] nums = {4, 5, 6, 6, 7, 0, 1, 1, 2};
+//        int[] nums = {4, 5, 6, 7, 0, 1, 2};
+        int[] nums = {4, 5, 6, 6, 7,-1, 0, 1, 1, 2};
         int target = 0;
         System.out.println(search(nums, target));
     }
 
     public static int search(int[] nums, int target) {
-        int pivot = findPivot(nums);
-//        int pivot = findPivotWithDuplicates(nums);
+//        int pivot = findPivot(nums); //// LeetCode # 33
+        int pivot = findPivotWithDuplicates(nums); // LeetCode # 81
         int length = nums.length - 1;
 
         //Array is not a Rotated Sorted Array. It is a regular sorted array.
         //Hence, simple binary search needs to be applied
-        if (pivot == -1) {
-            return binarySearch(nums, target, 0, length);
-        }
+        if (pivot == -1) return binarySearch(nums, target, 0, length);
 
-        if (target == nums[pivot]) {
-            return pivot;
-        }
+        if (target == nums[pivot]) return pivot;
 
         // if the target >= start, target must lay in first sorted part of array
+        if (target >= nums[0]) return binarySearch(nums, target, 0, pivot - 1);
+
         // Otherwise it would be in 2nd part of sorted array
-        if (target >= nums[0]) {
-            return binarySearch(nums, target, 0, pivot - 1);
-        } else {
-            return binarySearch(nums, target, pivot + 1, length);
-        }
+        return binarySearch(nums, target, pivot + 1, length);
+
     }
 
     //this method will not work for Array with duplicate elements
@@ -96,7 +97,7 @@ public class LC33_SearchInRotatedSortedArray {
                 }
                 start++;
 
-                // check if start is pivot
+                // check if end - 1 is pivot
                 if (end < start && nums[end] < nums[end - 1]) {
                     return end - 1;
                 }

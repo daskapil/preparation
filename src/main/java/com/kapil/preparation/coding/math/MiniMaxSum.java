@@ -1,12 +1,7 @@
-package com.kapil.preparation.coding;
+package com.kapil.preparation.coding.math;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
 * Given five positive integers, find the minimum and maximum values that can be
