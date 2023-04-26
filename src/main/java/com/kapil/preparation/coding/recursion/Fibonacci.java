@@ -18,14 +18,13 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         int index = 50;
-//        for (int i = 0; i <= index; i++) {
-////            System.out.println("F_{" + i + "}: " + fibonacci(i));
-//            System.out.println("F_{" + i + "}: " + fibonacciOptimized(i));
-//        }
+        for (int i = 0; i <= index; i++) {
+//            System.out.println("F_{" + i + "}: " + fibonacci(i));
+            System.out.println("F_{" + i + "}: " + fibonacciOptimized(i));
+        }
 //        System.out.println("F_{" + index + "}: " + fibonacci(index));
-        System.out.println(Arrays.toString(new int[2]));
         System.out.println("F_{" + index + "}: " + fibonacciOptimized(index));
-        System.out.println("F_{" + index + "}: " + fibonacci2(index));
+        System.out.println("F_{" + index + "}: " + fibonacciOptimized2(index));
     }
 
     private static long fibonacci(int index) {
@@ -48,7 +47,8 @@ public class Fibonacci {
         return memories[n];
     }
 
-    private static long fibonacci2(int n) {
+    //Bottom-Up Dynamic Programming (Memorization) approach
+    private static long fibonacciOptimized2(int n) {
         if (n == 0) return 0;
         if (n == 1) return 1;
 
