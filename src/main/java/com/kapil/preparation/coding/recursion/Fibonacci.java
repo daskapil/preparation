@@ -1,6 +1,13 @@
 package com.kapil.preparation.coding.recursion;
 
+import com.kapil.learn.collections.HashMapInternal;
+
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static java.util.Collections.EMPTY_MAP;
 
 /*
  * Fibonacci Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
@@ -18,13 +25,14 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         int index = 50;
-        for (int i = 0; i <= index; i++) {
+//        for (int i = 0; i <= index; i++) {
 //            System.out.println("F_{" + i + "}: " + fibonacci(i));
-            System.out.println("F_{" + i + "}: " + fibonacciOptimized(i));
-        }
+//            System.out.println("F_{" + i + "}: " + fibonacciOptimized(i));
+//        }
 //        System.out.println("F_{" + index + "}: " + fibonacci(index));
+//        System.out.println("F_{" + index + "}: " + fibonacciOptimized2(index));
         System.out.println("F_{" + index + "}: " + fibonacciOptimized(index));
-        System.out.println("F_{" + index + "}: " + fibonacciOptimized2(index));
+        System.out.println("F_{" + index + "}: " + fibonacciDynamic(index));
     }
 
     private static long fibonacci(int index) {
@@ -33,12 +41,16 @@ public class Fibonacci {
     }
 
     //Top-down Dynamic Programming (Memorization) approach
-    private static long fibonacciOptimized(int n){
+    private static long fibonacciOptimized(int n) {
         return fibonacciOptimized(n, new long[n + 1]);
     }
 
+    private static long fibonacciDynamic(int n) {
+        return fibonacciDynamic(n, new HashMap<>());
+    }
+
     private static long fibonacciOptimized(int n, long[] memories) {
-        if (n == 0 || n == 1) return n;
+        if (n <= 1) return n;
 
         if (memories[n] == 0) {
             memories[n] = fibonacciOptimized(n - 1, memories) + fibonacciOptimized(n - 2, memories);
@@ -49,8 +61,7 @@ public class Fibonacci {
 
     //Bottom-Up Dynamic Programming (Memorization) approach
     private static long fibonacciOptimized2(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
+        if (n <= 1) return n;
 
         long[] memories = new long[n];
         memories[0] = 0;
@@ -62,4 +73,11 @@ public class Fibonacci {
     }
 
 
+    private static long fibonacciDynamic(int n, Map<Integer, Long> memo) {
+        if (n <= 2) return 1;
+        if (memo.containsKey(n)) return memo.get(n);
+        memo.put(n, fibonacciDynamic(n - 1, memo) + fibonacciDynamic(n - 2, memo));
+        return memo.get(n);
+
+    }
 }

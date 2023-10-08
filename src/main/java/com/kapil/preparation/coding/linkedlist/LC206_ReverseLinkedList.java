@@ -6,7 +6,7 @@ import org.w3c.dom.Node;
  * https://leetcode.com/problems/reverse-linked-list/
  * Easy
  * */
-public class LC206_ReverseLinkedList {
+public class  LC206_ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
         ListNode previous = null;
         ListNode current = head;

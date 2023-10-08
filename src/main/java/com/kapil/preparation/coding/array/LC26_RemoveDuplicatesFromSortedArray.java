@@ -12,7 +12,7 @@ public class LC26_RemoveDuplicatesFromSortedArray {
         int slow = 0;
 
         for (int i = 1; i < nums.length; i++) {
-            if (nums[slow] != nums[i]) {;
+            if (nums[slow] != nums[i]) {
                 nums[++slow] = nums[i];
             }
         }

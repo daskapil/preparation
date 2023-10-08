@@ -17,7 +17,7 @@ public class LC125_Palindrome {
     }
 
     private static boolean isPalindromeStreamAPI(String str) {
-        String temp = str.replaceAll("\\s+", "");
+        String temp = str.replaceAll("[^a-zA-Z0-9]+", "").toLowerCase();
         int length = temp.length();
         return IntStream.range(0, length / 2)
                 .noneMatch(i -> temp.charAt(i) != temp.charAt(length - i - 1));
@@ -49,7 +49,7 @@ public class LC125_Palindrome {
 
     // Recursion
     private static boolean isPalindromeRecur(String s) {
-        s = s.toLowerCase().replaceAll("[^a-b0-9]+", "");
+        s = s.toLowerCase().replaceAll("[^a-z0-9]+", "");
         if (s.isBlank()) return true;
         return isPalindromeRecur(s, 0, s.length());
     }

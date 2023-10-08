@@ -28,7 +28,6 @@ public class LC1_TwoSum {
 
             complements.put(complement, i);
         }
-
         return new int[0]; //return new int[]{};
     }
 

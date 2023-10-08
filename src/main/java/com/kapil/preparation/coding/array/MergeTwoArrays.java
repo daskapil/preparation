@@ -8,14 +8,13 @@ public class MergeTwoArrays {
     //Stream.of() method
     private static String[] concatenate1 (String[] first, String[] second) {
         return Stream.of(first, second)
-                .flatMap(Stream::of) //or Use Arrays::stream
-                .toArray(String[]::new);
+                .flatMap(Stream::of)
+                .toArray(String[]:: new);
     }
 
     // Method to merge two arrays in Java 8 and above
     private static String[] concatenate2 (String[] first, String[] second) {
-        return Stream.concat(Arrays.stream(first), Arrays.stream(second))
-                                .toArray(String[]::new);
+        return Stream.concat(Arrays.stream(first), Arrays.stream(second)).toArray(String[]::new);
     }
 
     public static void main(String[] args) {

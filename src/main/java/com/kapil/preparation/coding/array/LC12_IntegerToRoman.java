@@ -66,6 +66,7 @@ public class LC12_IntegerToRoman {
         map.put(1000, "M");
 
         StringBuilder result = new StringBuilder();
+
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             int quotient = num / entry.getKey();
 

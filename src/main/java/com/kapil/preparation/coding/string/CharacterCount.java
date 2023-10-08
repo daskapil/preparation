@@ -3,6 +3,7 @@ package com.kapil.preparation.coding.string;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class CharacterCount {
 
@@ -15,6 +16,7 @@ public class CharacterCount {
     public static void main(String[] args) {
         String text = "bookkeeper";
         System.out.println(countCharacters(text));
+        System.out.println(countCharacters2(text));
     }
 
     private static Map<Character, Integer> countCharacters(String text) {
@@ -29,32 +31,11 @@ public class CharacterCount {
         return outputs;
     }
 
-    public static class LC46_Permutations {
-
-        public static void main(String[] args) {
-
+    private static Map<Character, Integer> countCharacters2(String text) {
+        Map<Character, Integer> outputs =  new TreeMap<>();
+        for (char c: text.toCharArray()) {
+            outputs.put(c, outputs.getOrDefault(c, 0) + 1);
         }
-
-        private static List<List<Integer>> permute(int[] nums) {
-            List<Integer> in = IntStream.range(0, nums.length).boxed().collect(Collectors.toList());
-            return permute(in, new ArrayList<>());
-        }
-
-        private static List<List<Integer>> permute(List<Integer> in, List<Integer> out) {
-            List<List<Integer>> list = new ArrayList<>();
-
-            if (in.isEmpty()) {
-                list.add(out);
-                return list;
-            }
-
-            int n = in.get(0);
-            List<Integer> inner = new ArrayList<>();
-            for (int i = 0; i <= out.size(); i++) {
-
-            }
-
-            return list;
-        }
+        return outputs;
     }
 }

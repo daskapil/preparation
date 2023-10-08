@@ -6,7 +6,7 @@ package com.kapil.preparation.coding.string;
 public class LC680_ValidPalindrome_II {
 
     public static void main(String[] args) {
-        String s = "aba";
+        String s = "abc";
         System.out.println(validPalindrome(s));
     }
 

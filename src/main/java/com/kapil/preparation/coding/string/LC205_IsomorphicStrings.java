@@ -11,7 +11,7 @@ import java.util.Set;
  * */
 public class LC205_IsomorphicStrings {
     public static boolean isIsomorphic(String s, String t) {
-        if (s.length() != t.length()) return  false;
+        if (s.length() != t.length()) return false;
 
         Map<Character, Character> map = new HashMap<>();
         Set<Character> set = new HashSet<>();
@@ -22,14 +22,12 @@ public class LC205_IsomorphicStrings {
             //if cS is seen before in S
             if (map.containsKey(cS)) {
                 //Return false if  first occurrence of cS is already mapped to another char
-                if(!map.get(cS).equals(cT))
-                    return false;
+                if (!map.get(cS).equals(cT)) return false;
 
-              // if cS is seen for first time
+                // if cS is seen for first time
             } else {
                 //Return false if cT value is already mapped to another char in "s"
-                if(set.contains(cT))
-                    return false;
+                if (set.contains(cT)) return false;
                 //map cS and cT and mark it as mapped
                 map.put(cS, cT);
                 set.add(cT);
@@ -44,6 +42,6 @@ public class LC205_IsomorphicStrings {
 //        char a = 'b';
 //        Character A = 'a';
 //        System.out.println(A.equals(a));
-        System.out.println(isIsomorphic(s,t));
+        System.out.println(isIsomorphic(s, t));
     }
 }

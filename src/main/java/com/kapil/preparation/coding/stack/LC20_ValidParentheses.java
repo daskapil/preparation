@@ -4,12 +4,13 @@ import java.util.Map;
 import java.util.Stack;
 
 /*
- * https://leetcode.codm/problems/valid-parentheses/
+ * https://leetcode.com/problems/valid-parentheses/
  * */
-public class LC20_ValidParentheses {
+public class
+LC20_ValidParentheses {
 
     public static void main(String[] args) {
-        String s = "()[]{}}";
+        String s = "((";
         System.out.println(isValid(s));
     }
 
@@ -28,12 +29,10 @@ public class LC20_ValidParentheses {
             }
 
             if (c == ')' || c == '}' || c == ']') {
-                if (stack.empty() || stack.pop() != map.get(c)) {
-                    return false;
-                }
+                if (stack.isEmpty() || stack.pop() != map.get(c)) return false;
             }
         }
 
-        return stack.empty();
+        return stack.isEmpty();
     }
 }

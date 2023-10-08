@@ -38,29 +38,18 @@ public class ArrayProblems {
     // Do the above modifications to the input array in place and do not return anything.
     public static void duplicateZeros(int[] arr) {
         int index = 0;
-        int len = arr.length;
+        int n = arr.length;
 
-        while (index < len) {
+        while (index < n) {
             if (arr[index] == 0) {
-                for (int j = len - 2; j > index; j--) {
+                for (int j = n - 2; j > index; j--) {
                     arr[j + 1] = arr[j];
                 }
-                if (++index < len) { // Incrementing the index to next index before checking next index < len;
+                if (++index < n) { // Incrementing the index to next index before checking next index < n;
                     arr[index] = 0;
                 }
             }
             index++;
         }
     }
-
-    //
-    public static void duplicateZerosOptimized(int[] arr) {
-        int possiableDups = 0;
-        int length_ = arr.length - 1;
-
-//        for (int left = 0; left < length_)
-
-
-    }
-
 }

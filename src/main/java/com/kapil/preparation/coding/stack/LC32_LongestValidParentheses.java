@@ -1,4 +1,4 @@
-package com.kapil.preparation.coding.array;
+package com.kapil.preparation.coding.stack;
 
 import java.util.Stack;
 
@@ -19,6 +19,7 @@ public class LC32_LongestValidParentheses {
         int open = 0;
         int close = 0;
 
+        //()()
         // 0 ---> n
         for (int i = 0; i < n; i++) {
             char c = s.charAt(i);

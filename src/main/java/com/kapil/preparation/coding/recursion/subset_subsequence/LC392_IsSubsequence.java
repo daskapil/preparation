@@ -37,8 +37,7 @@ public class LC392_IsSubsequence {
         int j = 0;
 
         while (i < m && j < n) {
-            if (s.charAt(i) == t.charAt(i))
-                i++;
+            if (s.charAt(i) == t.charAt(i)) i++;
             j++;
         }
         // If i reaches end of s,that mean we found all characters of s in t,

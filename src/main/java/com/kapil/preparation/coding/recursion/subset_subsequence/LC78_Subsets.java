@@ -6,6 +6,8 @@ import java.util.List;
 
 /*
  * https://leetcode.com/problems/subsets/
+ *
+ * Time Complexity: O(n.2^n)
  * */
 public class LC78_Subsets {
     public static List<List<Integer>> subsets(int[] nums) {
@@ -15,6 +17,8 @@ public class LC78_Subsets {
         subsets(nums, index, inner, outer);
         return outer;
     }
+
+
 
     private static void subsets(int[] nums, int index, List<Integer> inner, List<List<Integer>> outer) {
         //base case
@@ -34,7 +38,7 @@ public class LC78_Subsets {
 
     public static List<List<Integer>> subsetsIterative(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-        ans.add(Collections.EMPTY_LIST);
+        ans.add(Collections.emptyList());
 
         for (int num : nums) {
             int n = ans.size();

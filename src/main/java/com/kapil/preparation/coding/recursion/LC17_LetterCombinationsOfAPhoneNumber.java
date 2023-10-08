@@ -9,7 +9,7 @@ import java.util.List;
 public class LC17_LetterCombinationsOfAPhoneNumber {
 
     public static void main(String[] args) {
-        System.out.println(pod("12"));
+        System.out.println(pod("23"));
         System.out.println(letterCombinations("1"));
     }
 
@@ -71,9 +71,6 @@ public class LC17_LetterCombinationsOfAPhoneNumber {
         // Hence '2' - '0' => 50 - 48 = 2
         int digit = in.charAt(0) - '0'; // first digit
 
-        //range = [startInclusive, endExclusive)
-        // startInclusive = (digit - 1) * 3
-        // endExclusive = digit * 3x
         for (int i = (digit - 1) * 3; i < digit * 3; i++) {
             char ch = (char) ('a' + i);
             list.addAll(pod(in.substring(1), out + ch));

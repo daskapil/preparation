@@ -9,7 +9,7 @@ public class LC1910_RemoveAllOccurrencesOfASubstring {
 
     //Option: 1
     public static String removeOccurrences2(String s, String part) {
-        return s.contains(part) ? removeOccurrences(s.replaceFirst(part, ""), part) : s;
+        return s.contains(part) ? removeOccurrences2(s.replaceFirst(part, ""), part) : s;
     }
 
     //Option: 2
