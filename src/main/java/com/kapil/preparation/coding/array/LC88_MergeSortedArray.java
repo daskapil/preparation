@@ -17,12 +17,14 @@ public class LC88_MergeSortedArray {
         merge3(nums1, m, nums2, n);
     }
 
+
+    //O(m + n)
     private static void merge3(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
         int j = n - 1;
         int k = m + n - 1;
 
-        while(j >= 0) {
+        while (j >= 0) {
             if (i >= 0 && nums1[i] > nums2[j]) {
                 nums1[k--] = nums1[i--];
             } else {
@@ -35,7 +37,7 @@ public class LC88_MergeSortedArray {
 
     // O((m + n)log(m + n))
     private static void merge2(int[] nums1, int m, int[] nums2, int n) {
-        for (int j = 0, i = m; j < n; j++){
+        for (int j = 0, i = m; j < n; j++) {
             nums1[i] = nums2[j];
             i++;
         }
@@ -67,7 +69,7 @@ public class LC88_MergeSortedArray {
             k++;
         }
 
-        while( j < n) {
+        while (j < n) {
             mix[k] = nums2[j];
             j++;
             k++;
