@@ -1,9 +1,12 @@
 package com.kapil.preparation.coding.array;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class LC26_RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int nums[] = {1, 1, 2};
-        System.out.println(removeDuplicates(nums));
+        log.info("{}", removeDuplicates(nums));
     }
 
     private static int removeDuplicates(int[] nums) {
