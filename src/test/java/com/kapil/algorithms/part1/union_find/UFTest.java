@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UFTest {
 
-    UF uf;
+    AbstractUF abstractUf;
     int numberOfComponent;
 
     @BeforeEach
     void setUp() {
         numberOfComponent = 5;
-        uf = new UF(numberOfComponent);
+        abstractUf = new QuickFindUF(numberOfComponent);
     }
 
     @Test
@@ -30,6 +30,6 @@ class UFTest {
 
     @Test
     void count() {
-        assertEquals(numberOfComponent, uf.count(), () -> "Number of component count did not match");
+        assertEquals(numberOfComponent, abstractUf.count(), () -> "Number of component count did not match");
     }
 }

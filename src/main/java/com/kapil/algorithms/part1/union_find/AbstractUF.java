@@ -1,30 +1,24 @@
 package com.kapil.algorithms.part1.union_find;
 
-public class UF {
-    int N;
+public abstract class AbstractUF {
+    public int N;
 
     // Initialize union-find data structure with N objects (0 to N-1)
-    UF(int N) {
+    protected AbstractUF(int N) {
         this.N = N;
     }
 
-    // Add connection between p and q
-    void union(int p, int q) {
-
-    }
+    // Add connection between p and q.
+    public abstract void union(int p, int q);
 
     // Are p and q in same component?
-    boolean connected(int p, int q) {
-        return false;
-    }
+    public abstract boolean connected(int p, int q);
 
     // Component identifier for p (0 to N-1)
-    int find(int p) {
-        return 0;
-    }
+    public abstract int find(int p);
 
     // Numbers of components
-    int count() {
+    public int count() {
         return N;
     }
 }
