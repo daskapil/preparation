@@ -1,7 +1,5 @@
 package com.kapil.datastructure.tree;
 
-import org.w3c.dom.Node;
-
 public class BinarySearchTree {
     private Node root;
 
