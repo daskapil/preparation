@@ -1,4 +1,4 @@
-package com.kapil.datastructure;
+package com.kapil.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
