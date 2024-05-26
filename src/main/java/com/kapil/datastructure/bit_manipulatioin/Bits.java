@@ -1,11 +1,12 @@
 package com.kapil.datastructure.bit_manipulatioin;
 
 public class Bits {
+
     public static void main(String[] args) {
         getBit(5, 1);
         setBit(5, 1);
         clearBit(5, 2);
-        int operation = 0;
+        int operation = 0; // 1 or 0
         updateBit(5, 1, operation);
     }
 
