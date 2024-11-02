@@ -1,10 +1,11 @@
-package com.kapil.datastructure.tree2;
+package com.kapil.datastructure.binary_tree;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Time Complexity: O(H) where H is height of tree. In case of Balanced Tree, H is log(n) where n is no. of nodes
 @Slf4j
 public class BinaryTreeYT {
 
@@ -68,6 +69,35 @@ public class BinaryTreeYT {
                 if (currentNode.right != null) queue.add(currentNode.right);
             }
         }
+    }
+
+    public static int sumOfNodesAtKthLevel(Node root, int k){
+        if (root == null) return 0;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+
+        int sum = 0;
+        int currLevel = 1;
+        while (!queue.isEmpty() && currLevel <= k) {
+            Node currNode = queue.remove();
+
+            if (currNode == null) {
+                if (queue.isEmpty()) {
+                    break;
+                } else {
+                    queue.add(null);
+                    currLevel++;
+                }
+            } else {
+                if (currLevel == k) sum += currNode.data;
+                if (currNode.left != null) queue.add(currNode.left);
+                if (currNode.right != null) queue.add(currNode.right);
+            }
+        }
+
+        return sum;
     }
 
     // O(n)
@@ -185,6 +215,7 @@ public class BinaryTreeYT {
 //        log.info("sumOfNode(root) = {}", sumOfNodes(root)); //21
 //        log.info("heightOfTree(root) = {}", heightOfTree(root)); //3
 //        log.info("diameterOfTree(root) = {}", diameterOfTree(root)); //5
-        log.info("diameterOfTreeOptimized(root) = {}", diameterOfTreeOptimized(root).diameter); //5
+//        log.info("diameterOfTreeOptimized(root) = {}", diameterOfTreeOptimized(root).diameter); //5
+        log.info("sumOfNodesAtKthLevel(root, k): {}", sumOfNodesAtKthLevel(root, 3));
     }
 }
