@@ -2,7 +2,9 @@ package com.kapil.designpattern.strategy.headfirst.simuduck.ducks;
 
 import com.kapil.designpattern.strategy.headfirst.simuduck.behavior.fly.FlyNoWay;
 import com.kapil.designpattern.strategy.headfirst.simuduck.behavior.quck.Squeak;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class RubberDuck extends Duck {
 
     public RubberDuck() {
@@ -11,6 +13,6 @@ public class RubberDuck extends Duck {
 
     @Override
     public void display() {
-        System.out.println("I am Rubber Duck!");
+        log.info("I am Rubber Duck!");
     }
 }
