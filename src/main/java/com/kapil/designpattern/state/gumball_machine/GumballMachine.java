@@ -18,7 +18,7 @@ public class GumballMachine {
     State state;
     int count = 0;
 
-    public GumballMachine (int numberGumballs) {
+    public GumballMachine(int numberGumballs) {
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);
@@ -57,5 +57,13 @@ public class GumballMachine {
         if (count > 0) {
             count--;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "GumballMachine{" +
+                "state=" + state +
+                ", count=" + count +
+                '}';
     }
 }

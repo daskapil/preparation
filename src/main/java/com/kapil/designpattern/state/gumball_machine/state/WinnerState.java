@@ -4,7 +4,7 @@ import com.kapil.designpattern.state.gumball_machine.GumballMachine;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class WinnerState implements State{
+public class WinnerState implements State {
     GumballMachine gumballMachine;
 
     public WinnerState(GumballMachine gumballMachine) {
